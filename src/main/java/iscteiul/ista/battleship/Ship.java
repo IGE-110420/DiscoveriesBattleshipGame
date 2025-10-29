@@ -9,11 +9,11 @@ import java.util.List;
 
 public abstract class Ship implements IShip {
 
-    private static final String GALEAO = "galeao";
-    private static final String FRAGATA = "fragata";
-    private static final String NAU = "nau";
-    private static final String CARAVELA = "caravela";
-    private static final String BARCA = "barca";
+    private static final String GALEAO = "Galeao";
+    private static final String FRAGATA = "Fragata";
+    private static final String NAU = "Nau";
+    private static final String CARAVELA = "Caravela";
+    private static final String BARCA = "Barca";
 
     /**
      * @param shipKind
