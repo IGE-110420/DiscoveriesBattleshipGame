@@ -12,7 +12,7 @@
 | LIGE  | 122486 | Gonçalo Ordaz |
 | LIGE  | 124424 | Rodrigo Carraça |
 
-## 🎮 Regras do Jogo
+## Regras do Jogo
 
 O jogo é jogado numa grelha 10x10.
 
