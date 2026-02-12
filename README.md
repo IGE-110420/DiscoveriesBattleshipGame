@@ -12,6 +12,25 @@
 | LIGE  | 122486 | Gonçalo Ordaz |
 | LIGE  | 124424 | Rodrigo Carraça |
 
+## 🎮 Regras do Jogo
+
+O jogo é jogado numa grelha 10x10.
+
+O sistema de coordenadas é definido como:
+
+(x, y) ∈ {0,...,9} × {0,...,9}
+
+### Funcionamento:
+
+1. Cada jogador posiciona a sua frota na sua grelha.
+2. Os jogadores jogam alternadamente.
+3. Em cada turno, o jogador dispara **três tiros**.
+4. O adversário informa:
+   - Acerto (hit)
+   - Falha (miss)
+   - Se um navio foi afundado
+5. O jogador regista os resultados na grelha do adversário.
+6. Ganha o jogador que afundar todos os navios do oponente.
 
 ##  Tipos de Navios
 
@@ -28,5 +47,7 @@ Fragata - https://pt.wikipedia.org/wiki/Fragata
 Nau - https://pt.wikipedia.org/wiki/Nau
 Caravela - https://pt.wikipedia.org/wiki/Caravela
 Barca - https://pt.wikipedia.org/wiki/Barca
+
+
 
 
