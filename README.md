@@ -22,3 +22,11 @@
 | Nau                    | Navio 3 canhões  | 3        | 2          |
 | Caravela               | Navio 2 canhões  | 2        | 3          |
 | Barca                  | Submarino        | 1        | 4          |
+
+Galeão - https://pt.wikipedia.org/wiki/Gale%C3%A3o
+Fragata - https://pt.wikipedia.org/wiki/Fragata
+Nau - https://pt.wikipedia.org/wiki/Nau
+Caravela - https://pt.wikipedia.org/wiki/Caravela
+Barca - https://pt.wikipedia.org/wiki/Barca
+
+
