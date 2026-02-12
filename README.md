@@ -42,12 +42,14 @@ O sistema de coordenadas é definido como:
 | Caravela               | Navio 2 canhões  | 2        | 3          |
 | Barca                  | Submarino        | 1        | 4          |
 
-Galeão - https://pt.wikipedia.org/wiki/Gale%C3%A3o
-Fragata - https://pt.wikipedia.org/wiki/Fragata
-Nau - https://pt.wikipedia.org/wiki/Nau
-Caravela - https://pt.wikipedia.org/wiki/Caravela
-Barca - https://pt.wikipedia.org/wiki/Barca
+## Contexto Histórico
 
+Os navios utilizados neste jogo inspiram-se na época dos Descobrimentos Portugueses.
+
+- [Galeão](https://en.wikipedia.org/wiki/Galleon)
+- [Fragata](https://en.wikipedia.org/wiki/Frigate)
+- [Nau](https://en.wikipedia.org/wiki/Carrack)
+- [Caravela](https://en.wikipedia.org/wiki/Caravel)
 
 
 
