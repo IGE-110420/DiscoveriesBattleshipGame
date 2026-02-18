@@ -60,6 +60,7 @@ public class Game implements IGame {
         return null;
     }
 
+    // maximo 3 shots por turno
     public void fireTurn(List<IPosition> turnShots) {
         if (turnShots == null || turnShots.size() != SHOTS_PER_TURN) {
             throw new IllegalArgumentException("A turn must contain exactly " + SHOTS_PER_TURN + " shots.");
