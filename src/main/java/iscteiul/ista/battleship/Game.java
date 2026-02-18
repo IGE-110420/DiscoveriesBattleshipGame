@@ -19,6 +19,8 @@ public class Game implements IGame {
     private Integer countHits;
     private Integer countSinks;
 
+    private static final int SHOTS_PER_TURN = 3;
+
 
     /**
      * @param fleet
@@ -57,6 +59,17 @@ public class Game implements IGame {
         }
         return null;
     }
+
+    public void fireTurn(List<IPosition> turnShots) {
+        if (turnShots == null || turnShots.size() != SHOTS_PER_TURN) {
+            throw new IllegalArgumentException("A turn must contain exactly " + SHOTS_PER_TURN + " shots.");
+        }
+
+        for (IPosition pos : turnShots) {
+            fire(pos);
+        }
+    }
+
 
     /*
      * (non-Javadoc)
@@ -120,9 +133,10 @@ public class Game implements IGame {
     }
 
     private boolean validShot(IPosition pos) {
-        return (pos.getRow() >= 0 && pos.getRow() <= Fleet.BOARD_SIZE && pos.getColumn() >= 0
-                && pos.getColumn() <= Fleet.BOARD_SIZE);
+        return pos.getRow() >= 0 && pos.getRow() < Fleet.BOARD_SIZE &&
+                pos.getColumn() >= 0 && pos.getColumn() < Fleet.BOARD_SIZE;
     }
+
 
     private boolean repeatedShot(IPosition pos) {
         for (int i = 0; i < shots.size(); i++)
