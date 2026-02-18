@@ -50,6 +50,7 @@ Os navios utilizados neste jogo inspiram-se na época dos Descobrimentos Portugu
 - [Fragata](https://en.wikipedia.org/wiki/Frigate)
 - [Nau](https://en.wikipedia.org/wiki/Carrack)
 - [Caravela](https://en.wikipedia.org/wiki/Caravel)
+- [Barca](https://en.wikipedia.org/wiki/Barge)
 
 
 
