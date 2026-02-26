@@ -67,6 +67,7 @@ public class Carrack extends Ship {
      *
      * @return número de posições ocupadas pelo navio (3)
      */
+
     public Integer getSize() {
         return Carrack.SIZE;
     }
