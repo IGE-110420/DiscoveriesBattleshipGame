@@ -54,3 +54,70 @@ Os navios utilizados neste jogo inspiram-se na época dos Descobrimentos Portugu
 
 
 
+## Respostas ás perguntas teóricas
+
+##D.1:
+
+Working area, staging area, local e remote repository
+
+Working Area: é a área onde editamos os ficheiros no nosso computador.
+
+Staging Area: é a área intermédia onde colocamos os ficheiros antes de fazer commit, usando git add.
+
+Local Repository: é o repositório que está no nosso computador. O git commit guarda alterações aqui.
+
+Remote Repository: é o repositório no GitHub. O git push envia as alterações para lá.
+
+##D.2:
+
+Comandos fundamentais
+
+git init – cria um novo repositório Git.
+git clone – copia um repositório remoto para o computador.
+git add – adiciona ficheiros à staging area.
+git commit – guarda alterações no repositório local.
+git push – envia alterações para o repositório remoto.
+git pull – atualiza o repositório local com alterações do remoto.
+
+##E.1:
+
+Criar, alternar e unir branches
+
+Uma branch é uma linha de desenvolvimento independente.
+
+branch – cria uma nova branch.
+checkout – muda para outra branch.
+merge – junta alterações de uma branch noutra.
+rebase – reaplica commits de uma branch sobre outra, mantendo o histórico mais linear.
+
+##E.2:
+
+Simulação de conflito
+
+Um conflito ocorre quando duas pessoas alteram a mesma parte de um ficheiro.
+
+O Git marca o conflito no ficheiro com separadores.
+É necessário editar manualmente o ficheiro, escolher a versão correta e remover as marcações.
+Depois faz-se git add, git commit e git push.
+
+##F.1:
+
+git stash
+
+O git stash permite guardar temporariamente alterações que ainda não queremos fazer commit.
+É útil quando precisamos mudar de branch sem perder trabalho.
+
+##F.2:
+
+git tag
+
+O git tag serve para marcar versões importantes do projeto, como v1.0.
+Permite identificar releases ou versões estáveis.
+
+##F.3:
+
+Modelos de branching
+
+GitHub Flow – modelo simples baseado em branch + pull request + merge na main. Adequado para projetos pequenos.
+
+Git Flow – modelo mais estruturado com branches main, develop, feature, release e hotfix. Usado em projetos maiores.
