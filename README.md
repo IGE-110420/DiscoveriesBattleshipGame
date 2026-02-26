@@ -1,7 +1,7 @@
 # Discoveries Battleship Game
 
 ## Grupo
-**Nickname:** TP07-PL-8
+**Nickname:** TP05-11
 
 ## Membros
 
