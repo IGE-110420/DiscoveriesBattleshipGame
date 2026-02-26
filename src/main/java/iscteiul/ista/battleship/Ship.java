@@ -19,7 +19,7 @@ import java.util.List;
  * A ship is considered floating while at least one of its positions
  * has not been hit.
  *
- * @author TeuNome
+ * @author TeuNomee
  * @version 1.0
  */
 public abstract class Ship implements IShip {
