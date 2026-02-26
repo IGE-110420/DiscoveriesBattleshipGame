@@ -15,6 +15,7 @@ package iscteiul.ista.battleship;
  *
  * @author <TEU_NOME>
  */
+
 public class Carrack extends Ship {
 
     /** Tamanho fixo da Carrack. */
