@@ -25,7 +25,7 @@ public class Fleet implements IFleet {
         ships = new ArrayList<>();
     }
 
-    @Override
+
     public List<IShip> getShips() {
         return ships;
     }
@@ -35,7 +35,7 @@ public class Fleet implements IFleet {
      *
      * @see battleship.IFleet#addShip(battleship.IShip)
      */
-    @Override
+
     public boolean addShip(IShip s) {
         boolean result = false;
         if ((ships.size() <= FLEET_SIZE) && (isInsideBoard(s)) && (!colisionRisk(s))) {
@@ -50,7 +50,7 @@ public class Fleet implements IFleet {
      *
      * @see battleship.IFleet#getShipsLike(java.lang.String)
      */
-    @Override
+
     public List<IShip> getShipsLike(String category) {
         List<IShip> shipsLike = new ArrayList<>();
         for (IShip s : ships)
@@ -65,7 +65,7 @@ public class Fleet implements IFleet {
      *
      * @see battleship.IFleet#getFloatingShips()
      */
-    @Override
+
     public List<IShip> getFloatingShips() {
         List<IShip> floatingShips = new ArrayList<>();
         for (IShip s : ships)
@@ -80,7 +80,7 @@ public class Fleet implements IFleet {
      *
      * @see battleship.IFleet#shipAt(battleship.IPosition)
      */
-    @Override
+
     public IShip shipAt(IPosition pos) {
         for (int i = 0; i < ships.size(); i++)
             if (ships.get(i).occupies(pos))
@@ -100,7 +100,6 @@ public class Fleet implements IFleet {
         }
         return false;
     }
-
 
     /**
      * This operation shows the state of a fleet
