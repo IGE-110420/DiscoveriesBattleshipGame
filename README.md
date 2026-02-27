@@ -121,3 +121,11 @@ Modelos de branching
 GitHub Flow – modelo simples baseado em branch + pull request + merge na main. Adequado para projetos pequenos.
 
 Git Flow – modelo mais estruturado com branches main, develop, feature, release e hotfix. Usado em projetos maiores.
+
+## Parte 2 :
+
+## C.1:
+
+Trabalhar via web (GitHub) é mais simples e rápido para pequenas alterações, como editar o README, corrigir comentários ou rever Pull Requests. Não é necessário instalar nada e é acessível a partir de qualquer computador.
+
+Trabalhar via IDE (IntelliJ) é mais completo e profissional, sendo preferível para desenvolver código, testar, compilar e gerir projetos maiores. A IDE facilita a navegação no código, deteta erros automaticamente e integra melhor as ferramentas de Git.
