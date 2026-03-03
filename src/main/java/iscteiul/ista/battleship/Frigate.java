@@ -34,7 +34,6 @@ public class Frigate extends Ship {
      *
      * @see battleship.Ship#getSize()
      */
-    @Override
     public Integer getSize() {
         return Frigate.SIZE;
     }
