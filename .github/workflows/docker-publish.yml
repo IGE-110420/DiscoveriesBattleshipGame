@@ -1,0 +1,36 @@
+name: Publish Docker Image
+
+on:
+  push:
+    branches:
+      - main
+      - IGE-110420-patch-1
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build JAR
+        run: mvn clean package
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: docker build -t miguelpaiva/battleship-game:latest .
+
+      - name: Push Docker image
+        run: docker push miguelpaiva/battleship-game:latest
