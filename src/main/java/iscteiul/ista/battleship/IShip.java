@@ -32,5 +32,5 @@ public interface IShip {
 
     boolean tooCloseTo(IPosition pos);
 
-    void shoot(IPosition pos);
+    void shoot(IPosition pos); //VersaoA
 }
