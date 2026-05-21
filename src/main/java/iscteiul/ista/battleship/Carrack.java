@@ -3,7 +3,7 @@ package iscteiul.ista.battleship;
 /**
  * Representa um navio do tipo Carrack (Nau) no jogo Battleship.
  *
- * <p>A Carrack ocupa {@value #SIZE} posições consecutivas na grelha e pode ser
+ * <p>A Carrack ocupa 3 posições consecutivas na grelha e pode ser
  * colocada na vertical (NORTH/SOUTH) ou na horizontal (EAST/WEST), a partir da
  * posição inicial fornecida.
  *
@@ -13,7 +13,7 @@ package iscteiul.ista.battleship;
  *   <li>Calcular e guardar as posições ocupadas no tabuleiro consoante a orientação.</li>
  * </ul>
  *
- * @author <TEU_NOME>
+ * @author miguel
  */
 
 public class Carrack extends Ship {
