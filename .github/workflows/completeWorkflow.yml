@@ -1,0 +1,99 @@
+name: Complete CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Checkout do código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Configuração Java
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      # Cache Maven
+      - name: Cache Maven packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
+
+      # Compilar projeto
+      - name: Compile project
+        run: mvn clean compile
+
+      # Executar testes
+      - name: Run tests
+        run: mvn test
+
+      # Gerar package
+      - name: Package application
+        run: mvn package -DskipTests
+
+      # Gerar site Maven
+      - name: Generate Maven site
+        run: mvn site -DskipTests
+
+      # Gerar JavaDocs
+      - name: Generate JavaDocs
+        run: mvn javadoc:javadoc -DskipTests
+
+      # Build Docker image
+      - name: Build Docker image
+        run: docker build -t battleship-game .
+
+      # Login Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Tag Docker image
+      - name: Tag Docker image
+        run: docker tag battleship-game ${{ secrets.DOCKERHUB_USERNAME }}/battleship-game:latest
+
+      # Push Docker image
+      - name: Push Docker image
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/battleship-game:latest
+
+      # Atualizar documentação gerada
+      - name: Copy generated documentation
+        run: |
+          mkdir -p docs/apidocs
+          mkdir -p docs/maven-site
+
+          cp -r target/site/apidocs/* docs/apidocs/ || true
+          cp -r target/site/* docs/maven-site/ || true
+
+      # Commit automático da documentação
+      - name: Commit updated docs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add docs
+
+          git diff --staged --quiet || git commit -m "Auto-update generated documentation"
+
+      # Push automático da documentação
+      - name: Push documentation updates
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
