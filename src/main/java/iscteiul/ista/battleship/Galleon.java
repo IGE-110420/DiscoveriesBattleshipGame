@@ -13,7 +13,7 @@ package iscteiul.ista.battleship;
  *   <li>Preencher as posições ocupadas no tabuleiro conforme a orientação.</li>
  * </ul>
  *
- * @author <TEU_NOME>
+ * @author miguel
  */
 public class Galleon extends Ship {
 
