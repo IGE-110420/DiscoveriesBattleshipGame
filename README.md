@@ -1,50 +1,54 @@
 # Discoveries Battleship Game
 
+Projeto desenvolvido no âmbito da unidade curricular de Engenharia de Software.
+
 ## Grupo
+
 **Nickname:** TP05-11
 
-## Membros
+| Curso | Número | Nome |
+| --- | ---: | --- |
+| LIGE | 110420 | Miguel Paiva |
+| LIGE | 123779 | Bartolomeu Costa |
+| LIGE | 122486 | Gonçalo Ordaz |
+| LIGE | 124424 | Rodrigo Carraça |
 
-| Curso | Nº | Nome |
-|------|----|------|
-| LIGE  | 110420 | Miguel Paiva |
-| LIGE  | 123779 | Bartolomeu Costa |
-| LIGE  | 122486 | Gonçalo Ordaz |
-| LIGE  | 124424 | Rodrigo Carraça |
+## Descrição
+
+Este projeto implementa uma versão em Java do jogo Batalha Naval, com uma frota inspirada na época dos Descobrimentos Portugueses. O projeto usa Maven para compilação, testes, empacotamento e geração de documentação.
 
 ## Regras do Jogo
 
 O jogo é jogado numa grelha 10x10.
 
-O sistema de coordenadas é definido como:
+O sistema de coordenadas é:
 
+```text
 (x, y) ∈ {0,...,9} × {0,...,9}
+```
 
-### Funcionamento:
+Funcionamento geral:
 
 1. Cada jogador posiciona a sua frota na sua grelha.
 2. Os jogadores jogam alternadamente.
-3. Em cada turno, o jogador dispara **três tiros**.
-4. O adversário informa:
-   - Acerto (hit)
-   - Falha (miss)
-   - Se um navio foi afundado
+3. Em cada turno, o jogador dispara três tiros.
+4. O adversário informa se cada tiro foi um acerto, uma falha ou se afundou um navio.
 5. O jogador regista os resultados na grelha do adversário.
 6. Ganha o jogador que afundar todos os navios do oponente.
 
-##  Tipos de Navios
+## Frota
 
-| Nome (Descobrimentos) | Nome Atual        | Dimensão | Quantidade |
-|------------------------|------------------|----------|------------|
-| Galeão                 | Porta-aviões     | 5        | 1          |
-| Fragata                | Navio 4 canhões  | 4        | 1          |
-| Nau                    | Navio 3 canhões  | 3        | 2          |
-| Caravela               | Navio 2 canhões  | 2        | 3          |
-| Barca                  | Submarino        | 1        | 4          |
+| Nome no jogo | Nome atual | Dimensão | Quantidade |
+| --- | --- | ---: | ---: |
+| Galeão | Porta-aviões | 5 | 1 |
+| Fragata | Navio de 4 canhões | 4 | 1 |
+| Nau | Navio de 3 canhões | 3 | 2 |
+| Caravela | Navio de 2 canhões | 2 | 3 |
+| Barca | Submarino | 1 | 4 |
 
 ## Contexto Histórico
 
-Os navios utilizados neste jogo inspiram-se na época dos Descobrimentos Portugueses.
+Os navios utilizados no jogo foram inspirados na época dos Descobrimentos Portugueses:
 
 - [Galeão](https://en.wikipedia.org/wiki/Galleon)
 - [Fragata](https://en.wikipedia.org/wiki/Frigate)
@@ -52,80 +56,148 @@ Os navios utilizados neste jogo inspiram-se na época dos Descobrimentos Portugu
 - [Caravela](https://en.wikipedia.org/wiki/Caravel)
 - [Barca](https://en.wikipedia.org/wiki/Barge)
 
+## Requisitos
 
+- Java 17
+- Maven
+- Docker, apenas para construir e executar a imagem do projeto
 
-## Respostas ás perguntas teóricas
+## Compilação e Testes
 
-## D.1:
+Para compilar o projeto:
 
-Working area, staging area, local e remote repository
+```bash
+mvn clean compile
+```
 
-Working Area: é a área onde editamos os ficheiros no nosso computador.
+Para executar os testes:
 
-Staging Area: é a área intermédia onde colocamos os ficheiros antes de fazer commit, usando git add.
+```bash
+mvn test
+```
 
-Local Repository: é o repositório que está no nosso computador. O git commit guarda alterações aqui.
+Para gerar o ficheiro JAR:
 
-Remote Repository: é o repositório no GitHub. O git push envia as alterações para lá.
+```bash
+mvn clean package
+```
 
-## D.2:
+O JAR executável é criado em:
 
-Comandos fundamentais
+```text
+target/BattleshipGame-2.0.jar
+```
 
-git init – cria um novo repositório Git.
-git clone – copia um repositório remoto para o computador.
-git add – adiciona ficheiros à staging area.
-git commit – guarda alterações no repositório local.
-git push – envia alterações para o repositório remoto.
-git pull – atualiza o repositório local com alterações do remoto.
+Para executar a aplicação localmente:
 
-## E.1:
+```bash
+java -jar target/BattleshipGame-2.0.jar
+```
 
-Criar, alternar e unir branches
+## Docker
 
-Uma branch é uma linha de desenvolvimento independente.
+Depois de gerar o JAR, a imagem Docker pode ser criada com:
 
-branch – cria uma nova branch.
-checkout – muda para outra branch.
-merge – junta alterações de uma branch noutra.
-rebase – reaplica commits de uma branch sobre outra, mantendo o histórico mais linear.
+```bash
+docker build -t battleship-game:latest .
+```
 
-## E.2:
+Para executar a aplicação dentro de um contentor:
 
-Simulação de conflito
+```bash
+docker run --rm -i battleship-game:latest
+```
 
-Um conflito ocorre quando duas pessoas alteram a mesma parte de um ficheiro.
+O workflow `.github/workflows/docker-publish.yml` automatiza a criação e publicação da imagem Docker no Docker Hub.
 
-O Git marca o conflito no ficheiro com separadores.
-É necessário editar manualmente o ficheiro, escolher a versão correta e remover as marcações.
-Depois faz-se git add, git commit e git push.
+## DevContainer
 
-## F.1:
+O projeto inclui uma pasta `.devcontainer/` com a configuração do ambiente de desenvolvimento. O DevContainer usa Java 17 e Maven, permitindo compilar, testar e executar o projeto num ambiente reproduzível.
 
-git stash
+Ficheiros principais:
 
-O git stash permite guardar temporariamente alterações que ainda não queremos fazer commit.
-É útil quando precisamos mudar de branch sem perder trabalho.
+- `.devcontainer/devcontainer.json`
+- `.devcontainer/Dockerfile`
 
-## F.2:
+## Documentação
 
-git tag
+A documentação pública do projeto está na pasta `docs/`, preparada para GitHub Pages.
 
-O git tag serve para marcar versões importantes do projeto, como v1.0.
-Permite identificar releases ou versões estáveis.
+Página principal:
 
-## F.3:
+```text
+docs/index.html
+```
 
-Modelos de branching
+Javadoc:
 
-GitHub Flow – modelo simples baseado em branch + pull request + merge na main. Adequado para projetos pequenos.
+```text
+docs/apidocs/index.html
+```
 
-Git Flow – modelo mais estruturado com branches main, develop, feature, release e hotfix. Usado em projetos maiores.
+O Maven está configurado para gerar o site técnico em:
 
-## Parte 2 :
+```text
+docs/maven-site
+```
 
-## C.1:
+Comando para gerar o site Maven:
 
-Trabalhar via web (GitHub) é mais simples e rápido para pequenas alterações, como editar o README, corrigir comentários ou rever Pull Requests. Não é necessário instalar nada e é acessível a partir de qualquer computador.
+```bash
+mvn site
+```
 
-Trabalhar via IDE (IntelliJ) é mais completo e profissional, sendo preferível para desenvolver código, testar, compilar e gerir projetos maiores. A IDE facilita a navegação no código, deteta erros automaticamente e integra melhor as ferramentas de Git.
+Comando para gerar o Javadoc:
+
+```bash
+mvn javadoc:javadoc
+```
+
+## Estado da Ficha 6
+
+Tarefas já refletidas no repositório:
+
+- Criação de imagem Docker para o jogo.
+- Workflow de publicação da imagem Docker.
+- Configuração de DevContainer.
+- Publicação de documentação via pasta `docs/`.
+- Página `index.html` visual para GitHub Pages.
+- Javadoc gerado em `docs/apidocs`.
+
+A pipeline completa da tarefa H será tratada num workflow próprio quando essa tarefa for desenvolvida.
+
+## Notas de Git
+
+**Working Area:** área onde os ficheiros são editados localmente.
+
+**Staging Area:** área intermédia onde se colocam ficheiros com `git add` antes do commit.
+
+**Local Repository:** repositório guardado no computador, atualizado com `git commit`.
+
+**Remote Repository:** repositório remoto, normalmente no GitHub, atualizado com `git push`.
+
+Comandos fundamentais:
+
+- `git init`: cria um novo repositório Git.
+- `git clone`: copia um repositório remoto.
+- `git add`: adiciona ficheiros à staging area.
+- `git commit`: guarda alterações no repositório local.
+- `git push`: envia alterações para o repositório remoto.
+- `git pull`: atualiza o repositório local com alterações remotas.
+
+Branches:
+
+- `git branch`: cria ou lista branches.
+- `git checkout` / `git switch`: muda de branch.
+- `git merge`: junta alterações de outra branch.
+- `git rebase`: reaplica commits para manter um histórico mais linear.
+
+Outros comandos úteis:
+
+- `git stash`: guarda temporariamente alterações ainda não commitadas.
+- `git tag`: marca versões importantes, como `v1.0`.
+
+Modelos de branching:
+
+- **GitHub Flow:** modelo simples baseado em branch, pull request e merge na `main`.
+- **Git Flow:** modelo mais estruturado com branches `main`, `develop`, `feature`, `release` e `hotfix`.
