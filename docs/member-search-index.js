@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"iscteiul.ista.battleship","c":"Frigate","l":"Frigate(Compass, IPosition)","u":"%3Cinit%3E(iscteiul.ista.battleship.Compass,iscteiul.ista.battleship.IPosition)","k":"3"},{"p":"iscteiul.ista.battleship","c":"Frigate","l":"getSize()"}];updateSearchResults();
