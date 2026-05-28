@@ -1,3 +1,6 @@
+## Bartolomeu Costa (123779)
+Não consigo fazer a parte dos Dev Containers porque a exntensão no IDE não funciona. ( Já mostrado ao prof na aula)
+
 # Discoveries Battleship Game
 
 Projeto desenvolvido no âmbito da unidade curricular de Engenharia de Software.
